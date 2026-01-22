@@ -1,5 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using ProductApi.Data;
+using ProductApi.Repositories.Implementations;
+using ProductApi.Repositories.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,6 +14,8 @@ builder.Services.AddControllers();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddScoped<IProductRepository, ProductRepository>();
 
 var app = builder.Build();
 
