@@ -1,6 +1,6 @@
 Product Management System (Task - 1)
 Bu proje, .NET 10 (Backend) ve Next.js 16 (Frontend) teknolojileri kullanılarak geliştirilmiştir 
-Kullanıcıların ürün ekleyebileceği ve mevcut ürünleri listeleyebileceği bir arayüz sunar.
+Kullanıcıların ürün ekleyebileceği ve mevcut ürünleri listeleyebileceği, PostgreSQL 18.1 altyapısına sahip bir arayüz sunar.
 
 🚀 Proje Hakkında & Özellikler
 - Katmanlı Mimari: Controller - Service - Repository prensiplerine tam uyum.
@@ -11,7 +11,7 @@ Kullanıcıların ürün ekleyebileceği ve mevcut ürünleri listeleyebileceği
 🛠️ Teknolojiler
 Backend: .NET Core Version 10
 ORM: Entity Framework Core
-Veritabanı: MSSQL
+Veritabanı: PostgreSQL
 Dokümantasyon: Swagger / OpenAPI
 Prensipler: SOLID, Dependency Injection, Async/Await
 
@@ -26,37 +26,42 @@ Projeyi kendi bilgisayarınızda çalıştırmak için aşağıdaki adımları t
 
 Ön Gereksinimler
 .NET 10 SDK
-Node.js
-SQL Server veya LocalDB
+Node.js v24.12
+PostgreSQL v18.1
 
 1️⃣ Backend Kurulumu (API)
-1- Terminalde Backend klasörüne gidin:
+1- Terminalde Backend klasörüne gidin ( cd ):
 
 C:\Users\{UserName}\Downloads\Task_1-dev-v1.0.0\Task_1-dev-v1.0.0\Backend\ProductApi
 
 ! ProductApi dosyasının içine girin.
 
-2- Paketleri geri yükleyin:
+2- Paketleri yükleyin:
 - dotnet restore
 
-3- Projeyi derleyin:
+3- Veritabanı Bağlantı Ayarı: Projenin çalışabilmesi için kendi yerel PostgreSQL şifrenizi girmeniz gerekmektedir.
+Backend\ProductApi içerisindeki appsettings.json dosyasını açın ConnectionStrings bölümündeki bilgileri güncelleyin.
+
+4- Projeyi derleyin:
 - dotnet build
 
-4- Veritabanını güncelleyin:
+5- Veritabanını güncelleyin:
+! Eğer dotnet ef aracı yüklü değilse yükleyin: dotnet tool install --global dotnet-ef
+
 - dotnet ef database update
 
-5- Projeyi ayağa kaldırın:
+6- Projeyi ayağa kaldırın:
 - dotnet run
 API varsayılan olarak http://localhost:5253 (veya benzeri bir portta) çalışacaktır.
 
 Swagger Testi: Tarayıcınızda http://localhost:5253/swagger adresine giderek API dokümantasyonunu görebilirsiniz.
 
 2️⃣ Frontend Kurulumu (UI)
-1- Yeni bir terminal açın ve terminalde frontend klasörüne gidin:
+1- Yeni bir terminal açın ve terminalde frontend klasörüne gidin ( cd ):
 
 C:\Users\{UserName}\Downloads\Task_1-dev-v1.0.0\Task_1-dev-v1.0.0\frontend
 
-2- Paketleri geri yükleyin:
+2- Paketleri yükleyin:
 - npm install
 
 3- Çevre değişkenlerini ayarlayın:
